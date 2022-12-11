@@ -1,0 +1,24 @@
+name: QuebecProductions
+sceneByURL:
+  - action: scrapeXPath
+    url:
+      - quebecproductions.com/fr/scene/
+    scraper: sceneScraper
+xPathScrapers:
+  sceneScraper:
+    scene:
+      Title: //h1[@class="title"]/text()[1]
+      Tags:
+        Name: //div[@class="sceneCol sceneColCategories"]/a/text()
+      Performers:
+        Name: //a[@class="pornstarName"]/strong/text()
+      Studio:
+        Name:
+          fixed: Québec Productions
+      Details: //div[@class="sceneDesc bioToRight showMore"]@content
+      Image:
+        selector: //*[@id="vjs_video_3_html5_api"]/@poster
+driver:
+  useCDP: true
+
+# Last Updated December 11, 2022
